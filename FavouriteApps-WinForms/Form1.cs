@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 using System.IO;
 using System.Windows.Input;
 using System.Collections;
+using Lib;
 
 namespace FavouriteApps_WinForms
 {
@@ -21,40 +22,38 @@ namespace FavouriteApps_WinForms
         bool mouseDown = false;
         int baseHeight = 100;
         int windowX = 500, windowY = 300;
-        List<bool> filledPicBoxTable = new List<bool>(259);
-        List<string> AppsList = new List<string>(259);
-        string basepath = @"D:\C#_projects\FavouriteApps-WinForms\FavouriteApps-WinForms\FavouriteApps-WinForms\bin\Debug\Icons\";
+        List<AppModel> icons;
+        string basepath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\Icons\\";
+        
 
         public Form1()
         {
+            LoadIcons();
             this.SetDesktopLocation(windowX, windowY);
             InitializeComponent();
-            for (int i = 0; i < 260; i++)
-            {
-                filledPicBoxTable.Add(false);
-                AppsList.Add("");
-            }
         }
 
+        public void LoadIcons()
+        {
+            icons = SqliteDataAccess.LoadIcons();
+        }
         public string GetPath(int i)
         {
-            return AppsList[i];
+            return SqliteDataAccess.GetPath(i);
         }
 
-        private void choosingFileToPictureBox(PictureBox element , int pictureBoxNumber) {
-
-            
-
+        private void choosingFileToPictureBox(PictureBox element , int pictureBoxNumber) 
+        {
+            string path = GetPath(pictureBoxNumber);
+            int filled;
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                AppsList[pictureBoxNumber-1] = openFileDialog.FileName;
+                path = openFileDialog.FileName;
                 element.Image = Image.FromFile(String.Join("", new string[] { basepath, "default.png" }));
             }            
-            var path = AppsList[pictureBoxNumber - 1];
             var icon = IconFromFilePath(path);
             string iconName = String.Join("", new string[] { Path.GetFileName(path), ".png" });
-            Console.WriteLine(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase));
             if (icon != null)
             {
                 // Save it to disk, or do whatever you want with it.
@@ -66,7 +65,12 @@ namespace FavouriteApps_WinForms
                     }
                 }
                 element.Image = Image.FromFile(String.Join("", new string[] { basepath, iconName }));
-                filledPicBoxTable[pictureBoxNumber - 1] = true;
+                filled = 1;
+                AppModel app = new AppModel();
+                app.id = pictureBoxNumber;
+                app.filled = filled;
+                app.path = path;
+                SqliteDataAccess.SaveIcon(app);
             }
 
             Bitmap IconFromFilePath(string filePath)
@@ -93,22 +97,32 @@ namespace FavouriteApps_WinForms
         {
             MouseEventArgs me = (MouseEventArgs)e;
             PictureBox picbox = (PictureBox)sender;
+            
             int picboxNb = Convert.ToInt32(picbox.Tag.ToString());
+            int filled = SqliteDataAccess.GetFillState(picboxNb);
             if (me.Button == System.Windows.Forms.MouseButtons.Left)
             {
-                if (filledPicBoxTable[picboxNb-1] == false)
+                if (filled == 0)
                 {
                     choosingFileToPictureBox(picbox, picboxNb);
                 }
-                else
+                else if (filled == 1)
                 {
                     OpenApp(picboxNb);
                 }
+                else 
+                {
+                    MessageBox.Show("Bad state:" + filled.ToString() + " Correct: 0 or 1.");
+                }
             }
-            else if (me.Button == System.Windows.Forms.MouseButtons.Right) {
+            else if (me.Button == System.Windows.Forms.MouseButtons.Right) 
+            {
                 picbox.Image = Image.FromFile(String.Join("", new string[] { basepath, "default.png" }));
-                filledPicBoxTable[picboxNb - 1] = false;
-                AppsList[picboxNb - 1] = "";
+                AppModel app = new AppModel();
+                app.id = picboxNb;
+                app.path = "";
+                app.filled = 0;
+                SqliteDataAccess.SaveIcon(app);
             }
         }
 
@@ -185,7 +199,6 @@ namespace FavouriteApps_WinForms
 
         private void TopBar_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Console.WriteLine(TopBar.Height.ToString());
             if (hidedToTopBar)
             {
                 hidedToTopBar = false;
