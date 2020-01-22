@@ -18,7 +18,7 @@ namespace Lib
         }
         public static List<AppModel> LoadIcons()
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))//TODO:  on load copy to list and in for loop adding photos (path and filled work)
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 var output = cnn.Query<AppModel>("SELECT * FROM apps");
                 return output.ToList();
@@ -29,8 +29,8 @@ namespace Lib
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                Console.WriteLine("id: " + app.id + " path:" + app.path + " filled:" + app.filled);
-                cnn.Execute("update apps set path = @path,filled = @filled where id=@id", app);
+                Console.WriteLine("id: " + app.id + " path:" + app.path + " filled:" + app.filled + " name:" + app.name);
+                cnn.Execute("update apps set path = @path,filled = @filled, name=@name where id=@id", app);
             }
         }
 
@@ -58,6 +58,13 @@ namespace Lib
             }
         }
 
-
+        public static string GetNameOfApp(int id)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<AppModel>("select name from apps where id = @id", new { id = id }).ToList();
+                return output[0].name;
+            }
+        }
     }
 }

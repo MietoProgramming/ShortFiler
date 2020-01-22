@@ -28,14 +28,30 @@ namespace FavouriteApps_WinForms
 
         public Form1()
         {
-            LoadIcons();
             this.SetDesktopLocation(windowX, windowY);
             InitializeComponent();
+            LoadIcons();
         }
 
         public void LoadIcons()
         {
             icons = SqliteDataAccess.LoadIcons();
+            List<PictureBox> pictureBoxes = new List<PictureBox>();
+            Console.WriteLine("Start");
+            foreach (Control control in this.Controls)
+            {
+                if (control is PictureBox)
+                {
+                    PictureBox picbox = control as PictureBox;
+                    pictureBoxes.Add(picbox);
+                }
+            }
+            pictureBoxes.Reverse();
+            for (int i = 0; i < pictureBoxes.Count; i++)
+            {
+                pictureBoxes[i].Image = Image.FromFile(String.Join("", new string[] { basepath, icons[i].name }));
+            }
+            Console.WriteLine("Stop");
         }
         public string GetPath(int i)
         {
@@ -50,7 +66,7 @@ namespace FavouriteApps_WinForms
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 path = openFileDialog.FileName;
-                element.Image = Image.FromFile(String.Join("", new string[] { basepath, "default.png" }));
+                element.Image = Image.FromFile(String.Join("", new string[] { basepath, "Undefined name.png" }));
             }            
             var icon = IconFromFilePath(path);
             string iconName = String.Join("", new string[] { Path.GetFileName(path), ".png" });
@@ -70,6 +86,7 @@ namespace FavouriteApps_WinForms
                 app.id = pictureBoxNumber;
                 app.filled = filled;
                 app.path = path;
+                app.name = iconName;
                 SqliteDataAccess.SaveIcon(app);
             }
 
@@ -117,11 +134,12 @@ namespace FavouriteApps_WinForms
             }
             else if (me.Button == System.Windows.Forms.MouseButtons.Right) 
             {
-                picbox.Image = Image.FromFile(String.Join("", new string[] { basepath, "default.png" }));
+                picbox.Image = Image.FromFile(String.Join("", new string[] { basepath, "Undefined name.png" }));
                 AppModel app = new AppModel();
                 app.id = picboxNb;
                 app.path = "";
                 app.filled = 0;
+                app.name = "Undefined name.png";
                 SqliteDataAccess.SaveIcon(app);
             }
         }
@@ -195,6 +213,16 @@ namespace FavouriteApps_WinForms
             int point = MousePosition.X - (windowX + this.Width - 5);
             bool ret = point > 0 ? true :  false;
             return ret;
+        }
+
+        private void pictureBox1_MouseHover(object sender, EventArgs e)
+        {
+            PictureBox picbox = (PictureBox)sender;
+            int nb = Convert.ToInt32(picbox.Tag);
+            string name = SqliteDataAccess.GetNameOfApp(nb);
+            if (name == null) { nameLabel.Text = "Undefined name"; }
+            else { nameLabel.Text = name.ToString().Replace(".png",""); }
+            
         }
 
         private void TopBar_MouseDoubleClick(object sender, MouseEventArgs e)
