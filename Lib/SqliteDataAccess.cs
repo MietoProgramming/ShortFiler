@@ -21,7 +21,27 @@ namespace Lib
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 var output = cnn.Query<AppModel>("SELECT * FROM apps");
+                cnn.Close();
                 return output.ToList();
+            }
+        }
+
+        public static SettingsModel LoadStartPoint()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<SettingsModel>("SELECT * FROM settings").ToList();
+                cnn.Close();
+                return output[0];
+            }
+        }
+
+        public static void SaveStartPoint(SettingsModel setmod)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("update settings set x = @x,y = @y, height = @height, width = @width, hided = @hided", setmod);
+                cnn.Close();
             }
         }
 
@@ -29,8 +49,8 @@ namespace Lib
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                Console.WriteLine("id: " + app.id + " path:" + app.path + " filled:" + app.filled + " name:" + app.name);
                 cnn.Execute("update apps set path = @path,filled = @filled, name=@name where id=@id", app);
+                cnn.Close();
             }
         }
 
@@ -44,6 +64,7 @@ namespace Lib
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 var output = cnn.Query<AppModel>("select path from apps where id = @id", new {id = id}).ToList();
+                cnn.Close();
                 return output[0].path;
             }
 
@@ -54,6 +75,7 @@ namespace Lib
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 var output = cnn.Query<AppModel>("select filled from apps where id = @id", new {id = id }).ToList();
+                cnn.Close();
                 return output[0].filled;
             }
         }
@@ -63,6 +85,7 @@ namespace Lib
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 var output = cnn.Query<AppModel>("select name from apps where id = @id", new { id = id }).ToList();
+                cnn.Close();
                 return output[0].name;
             }
         }

@@ -18,19 +18,29 @@ namespace FavouriteApps_WinForms
 {
     public partial class Form1 : Form
     {
-        bool hidedToTopBar = false;
+        int hidedToTopBar = 0;
         bool mouseDown = false;
-        int baseHeight = 100;
-        int windowX = 500, windowY = 300;
+        int openHeight = 672;
+        int height, width;
+        int windowX, windowY;
         List<AppModel> icons;
         string basepath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\Icons\\";
         
 
         public Form1()
         {
-            this.SetDesktopLocation(windowX, windowY);
+            SettingsModel setmod = SqliteDataAccess.LoadStartPoint(); 
+            windowX = setmod.x;
+            windowY = setmod.y;
+            width = setmod.width;
+            height = setmod.height;
+            //hidedToTopBar = setmod.hided;
             InitializeComponent();
             LoadIcons();
+            this.SetDesktopLocation(windowX, windowY);
+            //TopBar_MouseDoubleClick();
+            this.Width = width;
+            this.Height = height;
         }
 
         public void LoadIcons()
@@ -149,7 +159,7 @@ namespace FavouriteApps_WinForms
         {
             try
             {
-                Process.Start(GetPath(number - 1));
+                Process.Start(GetPath(number));
             }
             catch { }
         }
@@ -181,6 +191,14 @@ namespace FavouriteApps_WinForms
 
         private void closeButton_Click(object sender, EventArgs e)
         {
+            SettingsModel setmod = new SettingsModel();
+            setmod.x = windowX;
+            setmod.y = windowY;
+            setmod.height = height;
+            setmod.width = width;
+            setmod.hided = hidedToTopBar;
+            SqliteDataAccess.SaveStartPoint(setmod);
+            GC.Collect();
             this.Close();
         }
 
@@ -190,16 +208,18 @@ namespace FavouriteApps_WinForms
             {
                 this.Width = MousePosition.X - windowX ;
                 TopBar.Width = MousePosition.X - windowX;
+                width = this.Width;
             }
             else if (mouseDown && mouseOnBottomBorder()) {
                 this.Height = MousePosition.Y - windowY;
-                baseHeight = this.Height;
+                height = this.Height;
+                openHeight = height;
             }
         }
 
         private bool mouseOnBottomBorder()
         {
-            int point = MousePosition.Y - (windowY + this.Height - 5);
+            int point = MousePosition.Y - (windowY + this.Height - 15);
             bool ret = point > 0 ? true : false;
             return ret;
         }
@@ -210,7 +230,7 @@ namespace FavouriteApps_WinForms
         }
 
         private bool mouseOnRightBorder() {
-            int point = MousePosition.X - (windowX + this.Width - 5);
+            int point = MousePosition.X - (windowX + this.Width - 15);
             bool ret = point > 0 ? true :  false;
             return ret;
         }
@@ -227,14 +247,29 @@ namespace FavouriteApps_WinForms
 
         private void TopBar_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (hidedToTopBar)
+            if (hidedToTopBar == 1)
             {
-                hidedToTopBar = false;
-                this.Height = baseHeight;
+                hidedToTopBar = 0;
+                this.Height = height;
                 
             }
             else {
-                hidedToTopBar = true;
+                hidedToTopBar = 1;
+                this.Height = TopBar.Height;
+            }
+        }
+
+        private void TopBar_MouseDoubleClick()
+        {
+            if (hidedToTopBar == 1)
+            {
+                hidedToTopBar = 0;
+                this.Height = height;
+
+            }
+            else
+            {
+                hidedToTopBar = 1;
                 this.Height = TopBar.Height;
             }
         }

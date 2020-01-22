@@ -647,6 +647,9 @@
             this.nameLabel.Size = new System.Drawing.Size(68, 13);
             this.nameLabel.TabIndex = 10;
             this.nameLabel.Text = "Name of app";
+            this.nameLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopBar_MouseDown);
+            this.nameLabel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopBar_MouseMove);
+            this.nameLabel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopBar_MouseUp);
             // 
             // label2
             // 
@@ -658,6 +661,9 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Shortcuter by MietoProgramming";
             this.label2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.TopBar_MouseDoubleClick);
+            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopBar_MouseDown);
+            this.label2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopBar_MouseMove);
+            this.label2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopBar_MouseUp);
             // 
             // label1
             // 
@@ -669,6 +675,9 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Plus Math icon icon by Icons8";
             this.label1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.TopBar_MouseDoubleClick);
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopBar_MouseDown);
+            this.label1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopBar_MouseMove);
+            this.label1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopBar_MouseUp);
             // 
             // closeButton
             // 
