@@ -20,34 +20,52 @@ namespace FavouriteApps_WinForms
     {
         int hidedToTopBar = 0;
         bool mouseDown = false;
-        int openHeight = 672;
         int height, width;
         int windowX, windowY;
         List<AppModel> icons;
         string basepath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\Icons\\";
-        
 
         public Form1()
         {
-            SettingsModel setmod = SqliteDataAccess.LoadStartPoint(); 
-            windowX = setmod.x;
-            windowY = setmod.y;
-            width = setmod.width;
-            height = setmod.height;
-            //hidedToTopBar = setmod.hided;
-            InitializeComponent();
-            LoadIcons();
-            this.SetDesktopLocation(windowX, windowY);
-            //TopBar_MouseDoubleClick();
-            this.Width = width;
-            this.Height = height;
+            try{
+                SettingsModel setmod = SqliteDataAccess.LoadStartPoint();
+                windowX = setmod.x;
+                windowY = setmod.y;
+                width = setmod.width;
+                height = setmod.height;
+                InitializeComponent();
+                LoadIcons();
+                this.SetDesktopLocation(windowX, windowY);
+                this.Width = width;
+                this.Height = height;
+            }
+            catch(Exception e) { LogErrors(e.Message); }
+        }
+
+        public void LogErrors(string text) {
+            string basepath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\log.txt";
+            if (File.Exists(basepath))
+            {
+
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(basepath))
+                {
+                    file.WriteLine(DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToLongTimeString() + " " + text);
+                }
+
+            }
+            else {
+                File.Create(basepath);
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(basepath))
+                {
+                    file.WriteLine(DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToLongTimeString() + " " + text);
+                }
+            }
         }
 
         public void LoadIcons()
         {
             icons = SqliteDataAccess.LoadIcons();
             List<PictureBox> pictureBoxes = new List<PictureBox>();
-            Console.WriteLine("Start");
             foreach (Control control in this.Controls)
             {
                 if (control is PictureBox)
@@ -59,9 +77,16 @@ namespace FavouriteApps_WinForms
             pictureBoxes.Reverse();
             for (int i = 0; i < pictureBoxes.Count; i++)
             {
-                pictureBoxes[i].Image = Image.FromFile(String.Join("", new string[] { basepath, icons[i].name }));
+                try
+                {
+                    pictureBoxes[i].Image = Image.FromFile(String.Join("", new string[] { basepath, icons[i].name }));
+                }
+                catch (Exception e) {
+                    MessageBox.Show("Bad path or icon doesn't exist. Delete and add app again.");
+                    LogErrors(e.Message);
+                    pictureBoxes[i].Image = Image.FromFile(String.Join("", new string[] { basepath, "Undefined name.png" }));
+                }
             }
-            Console.WriteLine("Stop");
         }
         public string GetPath(int i)
         {
@@ -70,35 +95,48 @@ namespace FavouriteApps_WinForms
 
         private void choosingFileToPictureBox(PictureBox element , int pictureBoxNumber) 
         {
+            
             string path = GetPath(pictureBoxNumber);
             int filled;
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 path = openFileDialog.FileName;
-                element.Image = Image.FromFile(String.Join("", new string[] { basepath, "Undefined name.png" }));
-            }            
-            var icon = IconFromFilePath(path);
-            string iconName = String.Join("", new string[] { Path.GetFileName(path), ".png" });
-            if (icon != null)
-            {
-                // Save it to disk, or do whatever you want with it.
-                if (!File.Exists(String.Join("", new string[] { basepath, iconName })))
+                var icon = IconFromFilePath(path);
+                string iconName = "Undefined name.png";
+                try
                 {
-                    using (var stream = new System.IO.FileStream(String.Join("", new string[] { basepath, iconName }), System.IO.FileMode.CreateNew))
+                    iconName = String.Join("", new string[] { Path.GetFileName(path), ".png" });
+                    if (icon != null)
                     {
-                        icon.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                        // Save it to disk, or do whatever you want with it.
+                        if (!File.Exists(String.Join("", new string[] { basepath, iconName })))
+                        {
+                            using (var stream = new System.IO.FileStream(String.Join("", new string[] { basepath, iconName }), System.IO.FileMode.CreateNew))
+                            {
+                                try
+                                {
+                                    icon.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                                }
+                                catch (Exception e) { MessageBox.Show(e.Message); }
+                            }
+                        }
+                        element.Image = Image.FromFile(String.Join("", new string[] { basepath, iconName }));
+                        filled = 1;
+                        AppModel app = new AppModel();
+                        app.id = pictureBoxNumber;
+                        app.filled = filled;
+                        app.path = path;
+                        app.name = iconName;
+                        SqliteDataAccess.SaveIcon(app);
                     }
                 }
-                element.Image = Image.FromFile(String.Join("", new string[] { basepath, iconName }));
-                filled = 1;
-                AppModel app = new AppModel();
-                app.id = pictureBoxNumber;
-                app.filled = filled;
-                app.path = path;
-                app.name = iconName;
-                SqliteDataAccess.SaveIcon(app);
-            }
+                catch (Exception e)
+                {
+                    LogErrors(e.Message);
+                }
+
+            }            
 
             Bitmap IconFromFilePath(string filePath)
             {
@@ -110,9 +148,10 @@ namespace FavouriteApps_WinForms
                     result = Icon.ExtractAssociatedIcon(filePath);
                     final = result.ToBitmap();
                 }
-                catch (System.Exception)
+                catch (Exception e)
                 {
                     MessageBox.Show("Something went wrong with converting icon to bitmap");
+                    LogErrors(e.Message);
                     // swallow and return nothing. You could supply a default Icon here as well
                 }
 
@@ -161,7 +200,10 @@ namespace FavouriteApps_WinForms
             {
                 Process.Start(GetPath(number));
             }
-            catch { }
+            catch(Exception e) {
+                MessageBox.Show("Something went wrong during opening an app. Try to delete and add app again.");
+                LogErrors(e.Message);
+            }
         }
 
         private void TopBar_MouseDown(object sender, MouseEventArgs e)
@@ -213,7 +255,6 @@ namespace FavouriteApps_WinForms
             else if (mouseDown && mouseOnBottomBorder()) {
                 this.Height = MousePosition.Y - windowY;
                 height = this.Height;
-                openHeight = height;
             }
         }
 
