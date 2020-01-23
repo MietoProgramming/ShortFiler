@@ -1,5 +1,5 @@
 # ShortFiler
-Shortcut panel with better look, small and light. Writed in C#.
+Shortcut panel with better look, small and light. Written in C#.
 * App is adding to autostart automatically
 * Double left click on the top bar to resize a window
 * Right and bottom border is movable - resize as much as you want! :D
