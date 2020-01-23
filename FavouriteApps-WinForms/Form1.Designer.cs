@@ -657,9 +657,9 @@
             this.label2.ForeColor = System.Drawing.Color.RoyalBlue;
             this.label2.Location = new System.Drawing.Point(23, 3);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(160, 13);
+            this.label2.Size = new System.Drawing.Size(155, 13);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Shortcuter by MietoProgramming";
+            this.label2.Text = "ShortFiler by MietoProgramming";
             this.label2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.TopBar_MouseDoubleClick);
             this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TopBar_MouseDown);
             this.label2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopBar_MouseMove);
