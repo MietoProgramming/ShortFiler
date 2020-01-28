@@ -25,22 +25,44 @@ namespace FavouriteApps_WinForms
         int windowX, windowY;
         List<AppModel> icons;
         string basepath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\Icons\\";
+        int r, g, b;
+        double opacity;
 
         public Form1()
         {
-            try{
+                InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            try
+            {
                 SettingsModel setmod = SqliteDataAccess.LoadStartPoint();
                 windowX = setmod.x;
                 windowY = setmod.y;
                 width = setmod.width;
                 height = setmod.height;
-                InitializeComponent();
-                LoadIcons();
+                r = setmod.r;
+                g = setmod.g;
+                b = setmod.b;
+                opacity = setmod.opacity;
+                this.Opacity = opacity;
+                this.BackColor = Color.FromArgb(r, g, b);
+                int redtop, greentop, bluetop;
+                if (r <= 30) { redtop = 0; }
+                else { redtop = r - 30; }
+                if (g <= 30) { greentop = 0; }
+                else { greentop = g - 30; }
+                if (b <= 30) { bluetop = 0; }
+                else { bluetop = b - 30; }
+                TopBar.BackColor = Color.FromArgb(redtop,greentop,bluetop);
                 this.SetDesktopLocation(windowX, windowY);
                 this.Width = width;
                 this.Height = height;
+                LoadIcons();
+                
             }
-            catch(Exception e) { LogErrors(e.Message); }
+            catch (Exception exep) { LogErrors(exep.Message); }
         }
 
         public void LogErrors(string text) {
@@ -234,12 +256,20 @@ namespace FavouriteApps_WinForms
 
         private void closeButton_Click(object sender, EventArgs e)
         {
+            this.r = this.BackColor.R;
+            this.g = this.BackColor.G;
+            this.b = this.BackColor.B;
+            this.opacity = this.Opacity;
             SettingsModel setmod = new SettingsModel();
             setmod.x = windowX;
             setmod.y = windowY;
             setmod.height = height;
             setmod.width = width;
             setmod.hided = hidedToTopBar;
+            setmod.r = r;
+            setmod.g = g;
+            setmod.b = b;
+            setmod.opacity = opacity;
             SqliteDataAccess.SaveStartPoint(setmod);
             GC.Collect();
             this.Close();
@@ -276,6 +306,8 @@ namespace FavouriteApps_WinForms
             bool ret = point > 0 ? true :  false;
             return ret;
         }
+
+        
 
         private void pictureBox1_MouseHover(object sender, EventArgs e)
         {

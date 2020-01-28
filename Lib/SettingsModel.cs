@@ -17,5 +17,13 @@ namespace Lib
         public int width { get; set; }
 
         public int hided { get; set; }
+
+        public int r { get; set; }
+
+        public int g { get; set; }
+
+        public int b { get; set; }
+
+        public double opacity { get; set; }
     }
 }

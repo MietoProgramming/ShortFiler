@@ -15,14 +15,26 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_1FE4DA9CA58F412CBF459472BAC4F55C"
+        "MsmKey" = "8:_0BCA3B8578114D67AF5CAA350B0039C5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2D00B3A15E264E93994E5CB53C30E2C4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2F111DE60A5743D6BDC194BF9F674329"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_41B880D0A30B42BB14E9A833BEFDD7D5"
-        "OwnerKey" = "8:_1FE4DA9CA58F412CBF459472BAC4F55C"
+        "OwnerKey" = "8:_2F111DE60A5743D6BDC194BF9F674329"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -40,7 +52,7 @@
         "Entry"
         {
         "MsmKey" = "8:_8DEE5F3EE9646C043D9E01DE0E4BABC6"
-        "OwnerKey" = "8:_1FE4DA9CA58F412CBF459472BAC4F55C"
+        "OwnerKey" = "8:_2F111DE60A5743D6BDC194BF9F674329"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -52,7 +64,7 @@
         "Entry"
         {
         "MsmKey" = "8:_D88FC65D9D88BF10B2057A1825351966"
-        "OwnerKey" = "8:_1FE4DA9CA58F412CBF459472BAC4F55C"
+        "OwnerKey" = "8:_2F111DE60A5743D6BDC194BF9F674329"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -63,14 +75,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_DC2B6833BE284020A0AC8F1C4CC876C3"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_F854A1D34A4B339FE9E83254C195E840"
+        "OwnerKey" = "8:_2F111DE60A5743D6BDC194BF9F674329"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F854A1D34A4B339FE9E83254C195E840"
-        "OwnerKey" = "8:_1FE4DA9CA58F412CBF459472BAC4F55C"
+        "MsmKey" = "8:_FAE2463E608E1E5CEDC6CE272E50D9E1"
+        "OwnerKey" = "8:_2F111DE60A5743D6BDC194BF9F674329"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -82,7 +94,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1FE4DA9CA58F412CBF459472BAC4F55C"
+        "OwnerKey" = "8:_2F111DE60A5743D6BDC194BF9F674329"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FAE2463E608E1E5CEDC6CE272E50D9E1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -128,6 +146,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
         "Release"
@@ -152,6 +178,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -182,6 +216,46 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0BCA3B8578114D67AF5CAA350B0039C5"
+            {
+            "SourcePath" = "8:..\\FavouriteApps-WinForms\\db1.db"
+            "TargetName" = "8:db1.db"
+            "Tag" = "8:"
+            "Folder" = "8:_D9480A2C79AA44FAA20AEA91675963BA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2D00B3A15E264E93994E5CB53C30E2C4"
+            {
+            "SourcePath" = "8:..\\FavouriteApps-WinForms\\Icons\\settings.png"
+            "TargetName" = "8:settings.png"
+            "Tag" = "8:"
+            "Folder" = "8:_48311E8AA8CF4FD68200D6DF27DB07B0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_41B880D0A30B42BB14E9A833BEFDD7D5"
             {
             "AssemblyRegister" = "3:1"
@@ -315,26 +389,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DC2B6833BE284020A0AC8F1C4CC876C3"
-            {
-            "SourcePath" = "8:..\\FavouriteApps-WinForms\\db1.db"
-            "TargetName" = "8:db1.db"
-            "Tag" = "8:"
-            "Folder" = "8:_D9480A2C79AA44FAA20AEA91675963BA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F854A1D34A4B339FE9E83254C195E840"
             {
             "AssemblyRegister" = "3:1"
@@ -349,6 +403,37 @@
                     }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_D9480A2C79AA44FAA20AEA91675963BA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FAE2463E608E1E5CEDC6CE272E50D9E1"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:OptionMenuForm, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_FAE2463E608E1E5CEDC6CE272E50D9E1"
+                    {
+                    "Name" = "8:OptionMenuForm.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:OptionMenuForm.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D9480A2C79AA44FAA20AEA91675963BA"
@@ -466,19 +551,19 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:ShortFiler"
-        "ProductCode" = "8:{564C46C3-85FA-4AA5-8653-5DA084E61077}"
-        "PackageCode" = "8:{02F8522C-A237-49A7-A1DA-31190AAAF4E2}"
+        "ProductCode" = "8:{9FC0A1C2-DFA3-48DA-B38C-8EE697174194}"
+        "PackageCode" = "8:{1A962918-CB46-4B3D-883F-BA7F588F033D}"
         "UpgradeCode" = "8:{78529EEE-4CCA-4ECD-B2F4-8AAD0489BCA8}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.1.0"
         "Manufacturer" = "8:MietoProgramming"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Setup1"
+        "Title" = "8:ShortFiler (1.1.0)"
         "Subject" = "8:"
         "ARPCONTACT" = "8:MietoProgramming"
         "Keywords" = "8:"
@@ -595,7 +680,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_1FE4DA9CA58F412CBF459472BAC4F55C"
+            "Target" = "8:_2F111DE60A5743D6BDC194BF9F674329"
             "Folder" = "8:_9FDDD789FBAE4077AAB8FEFCB495CE06"
             "WorkingFolder" = "8:_D9480A2C79AA44FAA20AEA91675963BA"
             "Icon" = "8:"
@@ -609,7 +694,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_1FE4DA9CA58F412CBF459472BAC4F55C"
+            "Target" = "8:_2F111DE60A5743D6BDC194BF9F674329"
             "Folder" = "8:_055E1EE5FDBB4393A18DAD8B5561584F"
             "WorkingFolder" = "8:_D9480A2C79AA44FAA20AEA91675963BA"
             "Icon" = "8:"
@@ -623,7 +708,7 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_1FE4DA9CA58F412CBF459472BAC4F55C"
+            "Target" = "8:_2F111DE60A5743D6BDC194BF9F674329"
             "Folder" = "8:_1968A0AD8A6742C482904683C583268B"
             "WorkingFolder" = "8:_D9480A2C79AA44FAA20AEA91675963BA"
             "Icon" = "8:"
@@ -1028,7 +1113,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_1FE4DA9CA58F412CBF459472BAC4F55C"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_2F111DE60A5743D6BDC194BF9F674329"
             {
             "SourcePath" = "8:..\\FavouriteApps-WinForms\\obj\\Debug\\ShortFiler.exe"
             "TargetName" = "8:"

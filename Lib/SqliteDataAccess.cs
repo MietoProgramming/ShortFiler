@@ -40,7 +40,7 @@ namespace Lib
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                cnn.Execute("update settings set x = @x,y = @y, height = @height, width = @width, hided = @hided", setmod);
+                cnn.Execute("update settings set x = @x,y = @y, height = @height, width = @width, hided = @hided, r = @r, g = @g, b = @b, opacity = @opacity", setmod);
                 cnn.Close();
             }
         }
