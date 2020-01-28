@@ -35,6 +35,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.TopBar = new System.Windows.Forms.Panel();
+            this.pictureBoxSettings = new System.Windows.Forms.PictureBox();
             this.nameLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -300,6 +301,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.TopBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -625,6 +627,7 @@
             // TopBar
             // 
             this.TopBar.BackColor = System.Drawing.Color.Navy;
+            this.TopBar.Controls.Add(this.pictureBoxSettings);
             this.TopBar.Controls.Add(this.nameLabel);
             this.TopBar.Controls.Add(this.label2);
             this.TopBar.Controls.Add(this.label1);
@@ -638,11 +641,22 @@
             this.TopBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TopBar_MouseMove);
             this.TopBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TopBar_MouseUp);
             // 
+            // pictureBoxSettings
+            // 
+            this.pictureBoxSettings.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSettings.Image")));
+            this.pictureBoxSettings.Location = new System.Drawing.Point(23, 0);
+            this.pictureBoxSettings.Name = "pictureBoxSettings";
+            this.pictureBoxSettings.Size = new System.Drawing.Size(23, 20);
+            this.pictureBoxSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxSettings.TabIndex = 263;
+            this.pictureBoxSettings.TabStop = false;
+            this.pictureBoxSettings.Click += new System.EventHandler(this.pictureBox261_Click);
+            // 
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
             this.nameLabel.ForeColor = System.Drawing.Color.White;
-            this.nameLabel.Location = new System.Drawing.Point(199, 3);
+            this.nameLabel.Location = new System.Drawing.Point(52, 3);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(68, 13);
             this.nameLabel.TabIndex = 10;
@@ -654,8 +668,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label2.Location = new System.Drawing.Point(23, 3);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(191, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(155, 13);
             this.label2.TabIndex = 9;
@@ -4288,6 +4302,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.TopBar.ResumeLayout(false);
             this.TopBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -4814,6 +4829,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.PictureBox pictureBoxSettings;
     }
 }
 

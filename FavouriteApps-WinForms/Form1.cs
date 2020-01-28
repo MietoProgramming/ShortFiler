@@ -13,6 +13,7 @@ using System.IO;
 using System.Windows.Input;
 using System.Collections;
 using Lib;
+using OptionMenuForm;
 
 namespace FavouriteApps_WinForms
 {
@@ -284,6 +285,14 @@ namespace FavouriteApps_WinForms
             if (name == null) { nameLabel.Text = "Undefined name"; }
             else { nameLabel.Text = name.ToString().Replace(".png",""); }
             
+        }
+
+        private void pictureBox261_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm(this);
+            settingsForm.Opacity = this.Opacity;
+            settingsForm.BackColor = this.BackColor;
+            settingsForm.Show();
         }
 
         private void TopBar_MouseDoubleClick(object sender, MouseEventArgs e)
