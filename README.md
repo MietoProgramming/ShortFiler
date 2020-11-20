@@ -16,6 +16,10 @@ Shortcut panel with better look, small and light. Written in C#.
 **Double click the top bar and hide your ShortFiler!**<br/>
 ![Hide to the top bar](/images/3.png)
 
-1.1.0 version:
+1.1.0:
 * Added panel to change background color and opacity
 * Some cosmetic changes
+
+1.2.0:
+* Some fixes
+* New icon
