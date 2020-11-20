@@ -21,6 +21,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_0FAD01A6906C7D5ABB060B724058F1D1"
+        "OwnerKey" = "8:_2F111DE60A5743D6BDC194BF9F674329"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_2D00B3A15E264E93994E5CB53C30E2C4"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -40,7 +46,13 @@
         "Entry"
         {
         "MsmKey" = "8:_41B880D0A30B42BB14E9A833BEFDD7D5"
-        "OwnerKey" = "8:_8DEE5F3EE9646C043D9E01DE0E4BABC6"
+        "OwnerKey" = "8:_70E07BB1BF0733253592F052B0950D65"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_70E07BB1BF0733253592F052B0950D65"
+        "OwnerKey" = "8:_2F111DE60A5743D6BDC194BF9F674329"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -51,8 +63,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_8DEE5F3EE9646C043D9E01DE0E4BABC6"
-        "OwnerKey" = "8:_2F111DE60A5743D6BDC194BF9F674329"
+        "MsmKey" = "8:_9D32202FC2DA487280A688E17514A74E"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -70,7 +82,7 @@
         "Entry"
         {
         "MsmKey" = "8:_D88FC65D9D88BF10B2057A1825351966"
-        "OwnerKey" = "8:_8DEE5F3EE9646C043D9E01DE0E4BABC6"
+        "OwnerKey" = "8:_70E07BB1BF0733253592F052B0950D65"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -81,18 +93,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_FAE2463E608E1E5CEDC6CE272E50D9E1"
-        "OwnerKey" = "8:_2F111DE60A5743D6BDC194BF9F674329"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F854A1D34A4B339FE9E83254C195E840"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_2F111DE60A5743D6BDC194BF9F674329"
         "MsmSig" = "8:_UNDEFINED"
@@ -100,13 +100,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FAE2463E608E1E5CEDC6CE272E50D9E1"
+        "OwnerKey" = "8:_0FAD01A6906C7D5ABB060B724058F1D1"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8DEE5F3EE9646C043D9E01DE0E4BABC6"
+        "OwnerKey" = "8:_70E07BB1BF0733253592F052B0950D65"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -119,6 +119,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_41B880D0A30B42BB14E9A833BEFDD7D5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F854A1D34A4B339FE9E83254C195E840"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -161,7 +167,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\Setup1.msi"
+        "OutputFilename" = "8:Release\\ShortFiler.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -236,6 +242,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0FAD01A6906C7D5ABB060B724058F1D1"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:OptionMenuForm, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_0FAD01A6906C7D5ABB060B724058F1D1"
+                    {
+                    "Name" = "8:OptionMenuForm.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:OptionMenuForm.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_D9480A2C79AA44FAA20AEA91675963BA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2D00B3A15E264E93994E5CB53C30E2C4"
             {
             "SourcePath" = "8:..\\FavouriteApps-WinForms\\Icons\\settings.png"
@@ -287,34 +324,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7D7843135F2F466592C6A032D2B321C9"
-            {
-            "SourcePath" = "8:..\\FavouriteApps-WinForms\\bin\\Release\\x86\\SQLite.Interop.dll"
-            "TargetName" = "8:SQLite.Interop.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_DD00D100DCFB4E82BAD031CE8427DFD7"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8DEE5F3EE9646C043D9E01DE0E4BABC6"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_70E07BB1BF0733253592F052B0950D65"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Lib, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_8DEE5F3EE9646C043D9E01DE0E4BABC6"
+                    "_70E07BB1BF0733253592F052B0950D65"
                     {
                     "Name" = "8:Lib.exe"
                     "Attributes" = "3:512"
@@ -336,6 +353,46 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7D7843135F2F466592C6A032D2B321C9"
+            {
+            "SourcePath" = "8:..\\FavouriteApps-WinForms\\bin\\Release\\x86\\SQLite.Interop.dll"
+            "TargetName" = "8:SQLite.Interop.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_DD00D100DCFB4E82BAD031CE8427DFD7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9D32202FC2DA487280A688E17514A74E"
+            {
+            "SourcePath" = "8:..\\FavouriteApps-WinForms\\shortfilericon1.ico"
+            "TargetName" = "8:shortfilericon1.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_D9480A2C79AA44FAA20AEA91675963BA"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B4C12728156D42B3B695534EBC7D1F7C"
@@ -403,37 +460,6 @@
                     }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_D9480A2C79AA44FAA20AEA91675963BA"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FAE2463E608E1E5CEDC6CE272E50D9E1"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:OptionMenuForm, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_FAE2463E608E1E5CEDC6CE272E50D9E1"
-                    {
-                    "Name" = "8:OptionMenuForm.exe"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:OptionMenuForm.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D9480A2C79AA44FAA20AEA91675963BA"
@@ -552,7 +578,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:ShortFiler"
         "ProductCode" = "8:{9FC0A1C2-DFA3-48DA-B38C-8EE697174194}"
-        "PackageCode" = "8:{1A962918-CB46-4B3D-883F-BA7F588F033D}"
+        "PackageCode" = "8:{54D35D57-570E-4812-8F8C-991A0E975AB4}"
         "UpgradeCode" = "8:{78529EEE-4CCA-4ECD-B2F4-8AAD0489BCA8}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -697,7 +723,7 @@
             "Target" = "8:_2F111DE60A5743D6BDC194BF9F674329"
             "Folder" = "8:_055E1EE5FDBB4393A18DAD8B5561584F"
             "WorkingFolder" = "8:_D9480A2C79AA44FAA20AEA91675963BA"
-            "Icon" = "8:"
+            "Icon" = "8:_9D32202FC2DA487280A688E17514A74E"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F4113D9B072B43C2B398240608DCE3AD"
@@ -1115,7 +1141,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_2F111DE60A5743D6BDC194BF9F674329"
             {
-            "SourcePath" = "8:..\\FavouriteApps-WinForms\\obj\\Debug\\ShortFiler.exe"
+            "SourcePath" = "8:..\\FavouriteApps-WinForms\\obj\\Release\\ShortFiler.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D9480A2C79AA44FAA20AEA91675963BA"
